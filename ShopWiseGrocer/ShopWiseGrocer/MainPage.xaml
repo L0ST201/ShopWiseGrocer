@@ -1,0 +1,61 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopWiseGrocer.MainPage">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/> 
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Grocery list section -->
+        <ListView x:Name="GroceryListView" IsGroupingEnabled="true" HasUnevenRows="true" GroupDisplayBinding="{Binding Key}" GroupShortNameBinding="{Binding Key}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Padding="1" Margin="5" BackgroundColor="White" CornerRadius="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Horizontal" Spacing="10" Grid.Column="0">
+                                    <CheckBox Margin="5" IsChecked="{Binding IsPurchased}" CheckedChanged="OnMarkAsPurchased" />
+                                    <Label Text="{Binding Name}" FontSize="{Binding TextSize}" VerticalOptions="Center" LineBreakMode="WordWrap" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                <ImageButton Source="icons8_delete_16" BackgroundColor="Transparent" Clicked="OnDeleteItem" VerticalOptions="Center" Grid.Column="1" Margin="0,0,5,0"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Add item section -->
+        <Grid Grid.Row="1" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>  <!-- Entry -->
+                <ColumnDefinition Width="2*"/>  <!-- Picker -->
+                <ColumnDefinition Width="Auto"/> <!-- ImageButton -->
+            </Grid.ColumnDefinitions>
+
+            <Entry Placeholder="Add item" x:Name="ItemEntry" HorizontalOptions="FillAndExpand" Grid.Column="0" />
+
+            <Picker Title="Category" x:Name="CategoryPicker" HorizontalOptions="FillAndExpand" Grid.Column="1">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Fruits</x:String>
+                        <x:String>Vegetables</x:String>
+                        <x:String>Meat</x:String>
+                        <x:String>Bakery</x:String>
+                        <x:String>Dairy</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <ImageButton Source="add_button.png" BackgroundColor="Transparent" Clicked="OnAddItem" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Margin="0,0,5,0"/> <!-- Set right margin -->
+        </Grid>
+
+        
+    </Grid>
+</ContentPage>
