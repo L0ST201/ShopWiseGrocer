@@ -4,7 +4,7 @@
              x:Class="ShopWiseGrocer.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#0053a5</Color>
+            <Color x:Key="Primary">#0C74D5</Color>
 
             <!-- Other styles -->
         </ResourceDictionary>
