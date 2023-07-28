@@ -37,15 +37,18 @@
 
         <!-- Add item section -->
         <Grid Grid.Row="1" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>  <!-- Entry -->
-                <ColumnDefinition Width="2*"/>  <!-- Picker -->
-                <ColumnDefinition Width="Auto"/> <!-- ImageButton -->
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Entry Placeholder="Add item" x:Name="ItemEntry" HorizontalOptions="FillAndExpand" Grid.Column="0" />
+            <Entry Placeholder="Add item" x:Name="ItemEntry" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" />
 
-            <Picker Title="Category" x:Name="CategoryPicker" HorizontalOptions="FillAndExpand" Grid.Column="1">
+            <Picker Title="Category" x:Name="CategoryPicker" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Fruits</x:String>
@@ -57,8 +60,9 @@
                 </Picker.ItemsSource>
             </Picker>
 
-            <ImageButton Source="add_button.png" BackgroundColor="Transparent" Clicked="OnAddItem" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Margin="0,0,5,0"/> <!-- Set right margin -->
+            <ImageButton Source="add_button.png" BackgroundColor="Transparent" Clicked="OnAddItem" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="0,30,5,0"/>
         </Grid>
+
 
         
     </Grid>
