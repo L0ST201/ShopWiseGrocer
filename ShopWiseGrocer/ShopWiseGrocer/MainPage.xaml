@@ -1,6 +1,8 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShopWiseGrocer.MainPage">
+             x:Class="ShopWiseGrocer.MainPage"
+             BackgroundColor="#a9a9a9">
+               
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -20,7 +22,9 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <StackLayout Orientation="Horizontal" Spacing="10" Grid.Column="0">
-                                    <CheckBox Margin="5" IsChecked="{Binding IsPurchased}" CheckedChanged="OnMarkAsPurchased" />
+                                    <CheckBox Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Primary}}" 
+                                      IsChecked="{Binding IsPurchased}" 
+                                      CheckedChanged="OnMarkAsPurchased" />
                                     <Label Text="{Binding Name}" FontSize="{Binding TextSize}" VerticalOptions="Center" LineBreakMode="WordWrap" HorizontalOptions="StartAndExpand"/>
                                 </StackLayout>
                                 <ImageButton Source="icons8_delete_16" BackgroundColor="Transparent" Clicked="OnDeleteItem" VerticalOptions="Center" Grid.Column="1" Margin="0,0,5,0"/>
