@@ -1,5 +1,6 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ShopWiseGrocer.Models"
              x:Class="ShopWiseGrocer.MainPage"
              BackgroundColor="#FBFAF5">
 
@@ -49,20 +50,23 @@
 
             <Picker Title="Category" x:Name="CategoryPicker" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
                 <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Fruits</x:String>
-                        <x:String>Vegetables</x:String>
-                        <x:String>Meat</x:String>
-                        <x:String>Bakery</x:String>
-                        <x:String>Dairy</x:String>
+                    <x:Array Type="{x:Type models:Category}">
+                        <models:Category Name="Beverages" Description="coffee/tea, juice, soda"/>
+                        <models:Category Name="Produce" Description="fruits, vegetables"/>
+                        <models:Category Name="Dairy" Description="milk, cheese, eggs"/>
+                        <models:Category Name="Bakery" Description="bread, cookies, pastries"/>
+                        <models:Category Name="Meat" Description="beef, chicken, fish"/>
+                        <models:Category Name="Snacks" Description="chips, nuts, candies"/>
+                        <models:Category Name="Frozen" Description="ice cream, frozen meals"/>
+                        <models:Category Name="Condiments" Description="ketchup, mustard, mayonnaise"/>
+                        <models:Category Name="Canned Goods" Description="soups, vegetables, fruits"/>
+                        <models:Category Name="Dry Goods" Description="pasta, rice, beans"/>
+                        <models:Category Name="Other" Description="paper goods, cleaning supplies, personal care"/>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
 
             <ImageButton Source="add_button.png" BackgroundColor="Transparent" Clicked="OnAddItem" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="0,30,5,0"/>
-        </Grid>
-
-
-        
+        </Grid>        
     </Grid>
 </ContentPage>

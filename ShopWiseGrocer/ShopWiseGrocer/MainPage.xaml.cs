@@ -25,7 +25,8 @@ namespace ShopWiseGrocer
         {
             if (!string.IsNullOrEmpty(ItemEntry.Text) && CategoryPicker.SelectedItem != null)
             {
-                var newItem = new GroceryItem(ItemEntry.Text, CategoryPicker.SelectedItem.ToString());
+                var category = (Category)CategoryPicker.SelectedItem;
+                var newItem = new GroceryItem(ItemEntry.Text, category.Name);
                 items.Add(newItem);
                 ItemEntry.Text = string.Empty;
                 UpdateGrouping();

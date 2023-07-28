@@ -17,7 +17,7 @@ namespace ShopWiseGrocer.Models
             Name = name;
             Category = category;
             IsPurchased = false;
-            TextSize = 20.0;  // Initialize TextSize to some default value
+            TextSize = 20.0;
         }
     }
 }
