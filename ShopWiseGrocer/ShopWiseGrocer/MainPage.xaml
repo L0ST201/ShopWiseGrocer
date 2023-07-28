@@ -61,7 +61,7 @@
                         <models:Category Name="Condiments" Description="ketchup, mustard, mayonnaise"/>
                         <models:Category Name="Canned Goods" Description="soups, vegetables, fruits"/>
                         <models:Category Name="Dry Goods" Description="pasta, rice, beans"/>
-                        <models:Category Name="Other" Description="paper goods, cleaning supplies, personal care"/>
+                        <models:Category Name="Other" Description="household, personal care"/>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>

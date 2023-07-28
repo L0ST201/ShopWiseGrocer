@@ -8,9 +8,9 @@ namespace ShopWiseGrocer.Models
         public string Name { get; set; }
         public bool IsPurchased { get; set; }
         public string Category { get; set; }
-        public string GroupName => Category; // This will be used for grouping in the ListView
+        public string GroupName => Category;
         public Color Color { get; set; }
-        public double TextSize { get; set; }  // Added TextSize property
+        public double TextSize { get; set; }
 
         public GroceryItem(string name, string category)
         {

@@ -35,7 +35,7 @@ namespace ShopWiseGrocer
 
         private void OnDeleteItem(object sender, EventArgs e)
         {
-            var item = (sender as ImageButton)?.BindingContext as GroceryItem; // Change this line
+            var item = (sender as ImageButton)?.BindingContext as GroceryItem;
             if (item != null)
             {
                 items.Remove(item);
