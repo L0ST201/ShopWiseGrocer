@@ -16575,7 +16575,7 @@ namespace ShopWiseGrocer.Droid
 			public const int ic_mtrl_chip_close_circle = 2131165291;
 			
 			// aapt resource value: 0x7F070072
-			public const int LoadingIcon = 2131165298;
+			public const int LoadingAppIcon = 2131165298;
 			
 			// aapt resource value: 0x7F070073
 			public const int material_cursor_drawable = 2131165299;
@@ -16680,19 +16680,16 @@ namespace ShopWiseGrocer.Droid
 			public const int preference_list_divider_material = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int shopping_list = 2131165333;
+			public const int Splash_screen = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int Splash_screen = 2131165334;
+			public const int test_custom_background = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int test_custom_background = 2131165335;
+			public const int tooltip_frame_dark = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int tooltip_frame_dark = 2131165336;
-			
-			// aapt resource value: 0x7F070099
-			public const int tooltip_frame_light = 2131165337;
+			public const int tooltip_frame_light = 2131165336;
 			
 			static Drawable()
 			{

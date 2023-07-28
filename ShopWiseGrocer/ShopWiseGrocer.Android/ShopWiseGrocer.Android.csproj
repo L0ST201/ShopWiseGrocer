@@ -110,10 +110,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\LoadingIcon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\Splash_screen.xml">
       <SubType></SubType>
       <Generator></Generator>
@@ -166,7 +162,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\shopping_list.png">
+    <AndroidResource Include="Resources\drawable\LoadingAppIcon.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
