@@ -93,8 +93,7 @@
                     x:Name="CategoryPicker"
                     HorizontalOptions="FillAndExpand"
                     Grid.Row="1"
-                    Grid.Column="0"
-                    ItemDisplayBinding="{Binding Name}">
+                    Grid.Column="0">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type models:Category}">
                         <models:Category Name="Beverages" Description="coffee/tea, juice, soda"/>
@@ -108,9 +107,9 @@
                         <models:Category Name="Canned Goods" Description="soups, vegetables, fruits"/>
                         <models:Category Name="Dry Goods" Description="pasta, rice, beans"/>
                         <models:Category Name="Other" Description="household, personal care"/>
-                            </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
             <ImageButton Source="add_button.png"
                          BackgroundColor="Transparent"
