@@ -59,8 +59,24 @@ namespace ShopWiseGrocer
 
         private void UpdateGrouping()
         {
+            var categoryOrder = new List<string>
+            {
+                "Beverages",
+                "Dairy",
+                "Bakery",
+                "Meat",
+                "Produce",
+                "Snacks",
+                "Frozen",
+                "Condiments",
+                "Canned Goods",
+                "Dry Goods",
+                "Other"
+            };
+
             var sorted = from item in items
-                         orderby item.Category
+                         let categoryIndex = categoryOrder.IndexOf(item.Category)
+                         orderby categoryIndex == -1, categoryIndex
                          group item by item.Category into itemGroup
                          select new Grouping<string, GroceryItem>(itemGroup.Key, itemGroup);
 
