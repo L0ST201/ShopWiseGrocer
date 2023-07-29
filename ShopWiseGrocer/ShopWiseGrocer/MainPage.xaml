@@ -97,10 +97,10 @@
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type models:Category}">
                         <models:Category Name="Beverages" Description="coffee/tea, juice, soda"/>
-                        <models:Category Name="Produce" Description="fruits, vegetables"/>
                         <models:Category Name="Dairy" Description="milk, cheese, eggs"/>
                         <models:Category Name="Bakery" Description="bread, cookies, pastries"/>
                         <models:Category Name="Meat" Description="beef, chicken, fish"/>
+                        <models:Category Name="Produce" Description="fruits, vegetables"/>
                         <models:Category Name="Snacks" Description="chips, nuts, candies"/>
                         <models:Category Name="Frozen" Description="ice cream, frozen meals"/>
                         <models:Category Name="Condiments" Description="ketchup, mustard, mayonnaise"/>
