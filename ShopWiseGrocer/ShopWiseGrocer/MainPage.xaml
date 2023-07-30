@@ -16,7 +16,9 @@
                   HasUnevenRows="true" 
                   GroupDisplayBinding="{Binding Key}" 
                   GroupShortNameBinding="{Binding Key}" 
-                  SeparatorVisibility="None">
+                  SeparatorVisibility="None"
+                  ItemSelected="OnItemSelected">
+
 
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>

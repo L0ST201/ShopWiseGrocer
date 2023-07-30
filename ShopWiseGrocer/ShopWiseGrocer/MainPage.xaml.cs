@@ -54,7 +54,12 @@ namespace ShopWiseGrocer
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            // will implement logic to handle item selection here.
+            if (e.SelectedItem == null)
+                return;
+
+            if (sender is ListView lv) lv.SelectedItem = null;
+
+            // Place your logic to handle item selection here if any.
         }
 
         private void UpdateGrouping()

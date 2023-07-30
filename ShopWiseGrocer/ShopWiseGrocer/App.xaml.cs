@@ -6,24 +6,26 @@ namespace ShopWiseGrocer
 {
     public partial class App : Application
     {
-        public App ()
+        public App()
         {
             InitializeComponent();
 
             MainPage = new MainPage();
         }
 
-        protected override void OnStart ()
+        protected override void OnStart()
         {
+            // Place to perform initial setup that needs to be performed each time the app starts.
         }
 
-        protected override void OnSleep ()
+        protected override void OnSleep()
         {
+            // Place to perform tasks when the app is going into the background.
         }
 
-        protected override void OnResume ()
+        protected override void OnResume()
         {
+            // Place to perform tasks when the app is resuming from the background.
         }
     }
 }
-
