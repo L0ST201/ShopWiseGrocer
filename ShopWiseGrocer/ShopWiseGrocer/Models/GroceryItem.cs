@@ -1,11 +1,15 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.ComponentModel;
+using SQLite;
 
 namespace ShopWiseGrocer.Models
 {
     public class GroceryItem : INotifyPropertyChanged
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         private bool _isPurchased;
@@ -21,8 +25,15 @@ namespace ShopWiseGrocer.Models
 
         public string Category { get; set; }
         public string GroupName => Category;
-        public Color Color { get; set; }
+
+        // Color property is now a string that stores the color as hexadecimal
+        public string ColorString { get; set; }
+
         public double TextSize { get; set; }
+
+        public GroceryItem()
+        {
+        }
 
         public GroceryItem(string name, string category)
         {

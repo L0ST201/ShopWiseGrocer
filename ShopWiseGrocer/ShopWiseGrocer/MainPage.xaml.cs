@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using ShopWiseGrocer.Models;
+using ShopWiseGrocer.Services;
 using Xamarin.Forms;
 
 namespace ShopWiseGrocer
@@ -11,35 +14,45 @@ namespace ShopWiseGrocer
     {
         private ObservableCollection<GroceryItem> items;
         private ObservableCollection<Grouping<string, GroceryItem>> groupedItems;
+        private DatabaseService _databaseService;
 
         public MainPage()
         {
             InitializeComponent();
+
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GroceryItems.db3");
+            _databaseService = new DatabaseService(dbPath);
 
             items = new ObservableCollection<GroceryItem>();
             groupedItems = new ObservableCollection<Grouping<string, GroceryItem>>();
             GroceryListView.ItemsSource = groupedItems;
         }
 
-        private void OnAddItem(object sender, EventArgs e)
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await LoadItems();
+        }
+
+        private async void OnAddItem(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(ItemEntry.Text) && CategoryPicker.SelectedItem != null)
             {
                 var category = (Category)CategoryPicker.SelectedItem;
                 var newItem = new GroceryItem(ItemEntry.Text, category.Name);
-                items.Add(newItem);
+                await _databaseService.SaveItemAsync(newItem);
                 ItemEntry.Text = string.Empty;
-                UpdateGrouping();
+                await LoadItems();
             }
         }
 
-        private void OnDeleteItem(object sender, EventArgs e)
+        private async void OnDeleteItem(object sender, EventArgs e)
         {
             var item = (sender as ImageButton)?.BindingContext as GroceryItem;
             if (item != null)
             {
-                items.Remove(item);
-                UpdateGrouping();
+                await _databaseService.DeleteItemAsync(item);
+                await LoadItems();
             }
         }
 
@@ -60,6 +73,12 @@ namespace ShopWiseGrocer
             if (sender is ListView lv) lv.SelectedItem = null;
 
             // Place your logic to handle item selection here if any.
+        }
+
+        private async Task LoadItems()
+        {
+            items = new ObservableCollection<GroceryItem>(await _databaseService.GetItemsAsync());
+            UpdateGrouping();
         }
 
         private void UpdateGrouping()
