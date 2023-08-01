@@ -29,5 +29,10 @@ namespace ShopWiseGrocer.Services
         {
             return _database.DeleteAsync(item);
         }
+
+        public Task<int> UpdateItemAsync(GroceryItem item)
+        {
+            return _database.UpdateAsync(item);
+        }
     }
 }

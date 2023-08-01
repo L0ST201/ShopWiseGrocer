@@ -26,7 +26,6 @@ namespace ShopWiseGrocer.Models
         public string Category { get; set; }
         public string GroupName => Category;
 
-        // Color property is now a string that stores the color as hexadecimal
         public string ColorString { get; set; }
 
         public double TextSize { get; set; }

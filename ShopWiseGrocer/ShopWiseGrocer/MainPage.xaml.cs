@@ -56,12 +56,13 @@ namespace ShopWiseGrocer
             }
         }
 
-        private void OnMarkAsPurchased(object sender, CheckedChangedEventArgs e)
+        private async void OnMarkAsPurchased(object sender, CheckedChangedEventArgs e)
         {
             var item = (sender as CheckBox)?.BindingContext as GroceryItem;
             if (item != null)
             {
                 item.IsPurchased = e.Value;
+                await _databaseService.UpdateItemAsync(item);
             }
         }
 
@@ -71,8 +72,6 @@ namespace ShopWiseGrocer
                 return;
 
             if (sender is ListView lv) lv.SelectedItem = null;
-
-            // Place your logic to handle item selection here if any.
         }
 
         private async Task LoadItems()
