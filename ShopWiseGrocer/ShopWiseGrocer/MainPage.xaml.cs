@@ -35,7 +35,7 @@ namespace ShopWiseGrocer
             _ = LoadItems();
         }
 
-        private async Task OnAddItem(object sender, EventArgs e)
+        private async void OnAddItem(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(ItemEntry.Text) && CategoryPicker.SelectedItem != null)
             {
@@ -45,7 +45,7 @@ namespace ShopWiseGrocer
                 {
                     await _databaseService.SaveItemAsync(newItem);
                 }
-                catch (SQLiteException ex)
+                catch (SQLiteException)
                 {
                     await DisplayAlert("Error", "An error occurred while adding the item. Please try again later.", "OK");
                     return;
@@ -55,7 +55,7 @@ namespace ShopWiseGrocer
             }
         }
 
-        private async Task OnDeleteItem(object sender, EventArgs e)
+        private async void OnDeleteItem(object sender, EventArgs e)
         {
             var item = (sender as ImageButton)?.BindingContext as GroceryItem;
             if (item != null)
@@ -64,7 +64,7 @@ namespace ShopWiseGrocer
                 {
                     await _databaseService.DeleteItemAsync(item);
                 }
-                catch (SQLiteException ex)
+                catch (SQLiteException)
                 {
                     await DisplayAlert("Error", "An error occurred while deleting the item. Please try again later.", "OK");
                     return;
@@ -73,7 +73,7 @@ namespace ShopWiseGrocer
             }
         }
 
-        private async Task OnMarkAsPurchased(object sender, CheckedChangedEventArgs e)
+        private async void OnMarkAsPurchased(object sender, CheckedChangedEventArgs e)
         {
             var item = (sender as CheckBox)?.BindingContext as GroceryItem;
             if (item != null)
@@ -83,7 +83,7 @@ namespace ShopWiseGrocer
                 {
                     await _databaseService.UpdateItemAsync(item);
                 }
-                catch (SQLiteException ex)
+                catch (SQLiteException)
                 {
                     await DisplayAlert("Error", "An error occurred while updating the item. Please try again later.", "OK");
                     return;
