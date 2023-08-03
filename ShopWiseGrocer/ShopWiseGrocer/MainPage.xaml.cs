@@ -146,5 +146,37 @@ namespace ShopWiseGrocer
             groupedItems = new ObservableCollection<Grouping<string, GroceryItem>>(sorted);
             GroceryListView.ItemsSource = groupedItems;
         }
+
+        private void OnButtonPressed(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                button.ScaleTo(0.95, 50); // Reduce the scale slightly over 50 milliseconds
+            }
+        }
+
+        private void OnButtonReleased(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                button.ScaleTo(1, 50); // Return the scale to normal over 50 milliseconds
+            }
+        }
+
+        void OnProfileClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProfilePage());
+        }
+
+        void OnNotificationClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NotificationsPage());
+        }
+
+        void OnSettingsClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SettingsPage());
+        }
+
     }
 }

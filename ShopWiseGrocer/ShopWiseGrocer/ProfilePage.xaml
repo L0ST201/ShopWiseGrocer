@@ -1,0 +1,83 @@
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ShopWiseGrocer.Models"
+             x:Class="ShopWiseGrocer.ProfilePage"
+             Title="Profile"
+             BackgroundColor="#FBFAF5">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Image Grid.Row="0" Grid.ColumnSpan="2" Source="accountcircle.png" 
+               WidthRequest="120" 
+               HeightRequest="120" 
+               HorizontalOptions="Center" />
+
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="Guest User" 
+               FontSize="24" 
+               HorizontalOptions="Center" />
+
+        <Label Grid.Row="2" Text="Email:" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Frame Grid.Row="2" Grid.Column="1" 
+           BackgroundColor="LightGray" 
+           Padding="10" 
+           CornerRadius="10" 
+           HasShadow="True"
+           VerticalOptions="Center"
+           HorizontalOptions="Center">
+            <StackLayout WidthRequest="200" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="guestuser@email.com" 
+                   FontSize="16" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <Label Grid.Row="3" Text="Phone Number:" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Frame Grid.Row="3" Grid.Column="1" 
+           BackgroundColor="LightGray" 
+           Padding="10" 
+           CornerRadius="10" 
+           HasShadow="True"
+           VerticalOptions="Center"
+           HorizontalOptions="Center">
+            <StackLayout WidthRequest="200"  HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="(123) 456-7890" 
+                   FontSize="16" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <Label Grid.Row="4" Text="Location:" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Frame Grid.Row="4" Grid.Column="1" 
+           BackgroundColor="LightGray" 
+           Padding="10" 
+           CornerRadius="10" 
+           HasShadow="True"
+           VerticalOptions="Center"
+           HorizontalOptions="Center">
+            <StackLayout WidthRequest="200"  HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="City, Country" 
+                   FontSize="16" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+    </Grid>
+
+</ContentPage>
