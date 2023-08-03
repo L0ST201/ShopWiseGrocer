@@ -59,7 +59,7 @@
                                            TextColor="{StaticResource TextColor}"
                                            TextDecorations="{Binding IsPurchased, Converter={StaticResource BoolToStrikethroughConverter}}"/>
                                 </StackLayout>
-                                <ImageButton Source="icons8_delete_16"
+                                <ImageButton Source="delete_button"
                                              BackgroundColor="Transparent"
                                              Clicked="OnDeleteItem"
                                              VerticalOptions="Center"
@@ -121,7 +121,7 @@
                          Grid.Column="1"
                          Grid.Row="0"
                          Grid.RowSpan="2"
-                         Margin="0,30,5,0"/>
+                         Margin="0,30,-10,0"/>
         </Grid>        
     </Grid>
 </ContentPage>
