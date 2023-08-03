@@ -9,6 +9,7 @@ namespace ShopWiseGrocer
         public App()
         {
             InitializeComponent();
+            var dummy = typeof(SQLite.SQLiteConnection);
 
             MainPage = new MainPage();
         }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ShopWiseGrocer.Models;
 using ShopWiseGrocer.Services;
+using SQLite;
 using Xamarin.Forms;
 
 namespace ShopWiseGrocer
@@ -28,41 +29,65 @@ namespace ShopWiseGrocer
             GroceryListView.ItemsSource = groupedItems;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await LoadItems();
+            _ = LoadItems();
         }
 
-        private async void OnAddItem(object sender, EventArgs e)
+        private async Task OnAddItem(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(ItemEntry.Text) && CategoryPicker.SelectedItem != null)
             {
                 var category = (Category)CategoryPicker.SelectedItem;
                 var newItem = new GroceryItem(ItemEntry.Text, category.Name);
-                await _databaseService.SaveItemAsync(newItem);
+                try
+                {
+                    await _databaseService.SaveItemAsync(newItem);
+                }
+                catch (SQLiteException ex)
+                {
+                    await DisplayAlert("Error", "An error occurred while adding the item. Please try again later.", "OK");
+                    return;
+                }
                 ItemEntry.Text = string.Empty;
                 await LoadItems();
             }
         }
 
-        private async void OnDeleteItem(object sender, EventArgs e)
+        private async Task OnDeleteItem(object sender, EventArgs e)
         {
             var item = (sender as ImageButton)?.BindingContext as GroceryItem;
             if (item != null)
             {
-                await _databaseService.DeleteItemAsync(item);
+                try
+                {
+                    await _databaseService.DeleteItemAsync(item);
+                }
+                catch (SQLiteException ex)
+                {
+                    await DisplayAlert("Error", "An error occurred while deleting the item. Please try again later.", "OK");
+                    return;
+                }
                 await LoadItems();
             }
         }
 
-        private async void OnMarkAsPurchased(object sender, CheckedChangedEventArgs e)
+        private async Task OnMarkAsPurchased(object sender, CheckedChangedEventArgs e)
         {
             var item = (sender as CheckBox)?.BindingContext as GroceryItem;
             if (item != null)
             {
                 item.IsPurchased = e.Value;
-                await _databaseService.UpdateItemAsync(item);
+                try
+                {
+                    await _databaseService.UpdateItemAsync(item);
+                }
+                catch (SQLiteException ex)
+                {
+                    await DisplayAlert("Error", "An error occurred while updating the item. Please try again later.", "OK");
+                    return;
+                }
             }
         }
 
@@ -76,8 +101,23 @@ namespace ShopWiseGrocer
 
         private async Task LoadItems()
         {
-            items = new ObservableCollection<GroceryItem>(await _databaseService.GetItemsAsync());
-            UpdateGrouping();
+            try
+            {
+                items = new ObservableCollection<GroceryItem>(await _databaseService.GetItemsAsync());
+                UpdateGrouping();
+            }
+            catch (AggregateException ae)
+            {
+                ae.Handle((x) =>
+                {
+                    if (x is SQLiteException)
+                    {
+                        DisplayAlert("Error", "An error occurred while loading items. Please try again later.", "OK");
+                        return true;
+                    }
+                    return false;
+                });
+            }
         }
 
         private void UpdateGrouping()
