@@ -6,8 +6,8 @@ namespace ShopWiseGrocer
 {
     public partial class App : Application
     {
-        private bool isDarkTheme = false;
-        public bool IsDarkTheme
+        private static bool isDarkTheme = false;
+        public static bool IsDarkTheme
         {
             get => isDarkTheme;
             set
@@ -20,7 +20,6 @@ namespace ShopWiseGrocer
             }
         }
 
-
         public App()
         {
             InitializeComponent();
@@ -30,26 +29,25 @@ namespace ShopWiseGrocer
             MainPage = new NavigationPage(new MainPage());
         }
 
-        private void ApplyTheme()
+        private static void ApplyTheme()
         {
             if (IsDarkTheme)
             {
-                Resources["Primary"] = Resources["DarkPrimary"];
-                Resources["Accent"] = Resources["DarkAccent"];
-                Resources["TextColor"] = Resources["DarkTextColor"];
-                Resources["FrameBackgroundColor"] = Resources["DarkFrameBackgroundColor"];
-                Resources["AppBackground"] = Resources["DarkAppBackground"];
+                Current.Resources["Primary"] = Current.Resources["DarkPrimary"];
+                Current.Resources["Accent"] = Current.Resources["DarkAccent"];
+                Current.Resources["TextColor"] = Current.Resources["DarkTextColor"];
+                Current.Resources["FrameBackgroundColor"] = Current.Resources["DarkFrameBackgroundColor"];
+                Current.Resources["AppBackground"] = Current.Resources["DarkAppBackground"];
             }
             else
             {
-                Resources["Primary"] = Resources["LightPrimary"];
-                Resources["Accent"] = Resources["LightAccent"];
-                Resources["TextColor"] = Resources["LightTextColor"];
-                Resources["FrameBackgroundColor"] = Resources["LightFrameBackgroundColor"];
-                Resources["AppBackground"] = Resources["LightAppBackground"];
+                Current.Resources["Primary"] = Current.Resources["LightPrimary"];
+                Current.Resources["Accent"] = Current.Resources["LightAccent"];
+                Current.Resources["TextColor"] = Current.Resources["LightTextColor"];
+                Current.Resources["FrameBackgroundColor"] = Current.Resources["LightFrameBackgroundColor"];
+                Current.Resources["AppBackground"] = Current.Resources["LightAppBackground"];
             }
         }
-
 
         protected override void OnStart()
         {
