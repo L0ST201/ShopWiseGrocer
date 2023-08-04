@@ -19,6 +19,12 @@
             <Color x:Key="DarkFrameBackgroundColor">#606060</Color>
             <Color x:Key="DarkAppBackground">#474747</Color>
 
+            <!-- Light theme colors -->
+            <Color x:Key="LightPrimary">#151b1f</Color>
+            <Color x:Key="LightAccent">#0C74D5</Color>
+            <Color x:Key="LightTextColor">#36454F</Color>
+            <Color x:Key="LightFrameBackgroundColor">White</Color>
+            <Color x:Key="LightAppBackground">#FBFAF5</Color>
             <OnPlatform x:Key="AppBackgroundColor" x:TypeArguments="Color">
                 <On Platform="iOS">White</On>
                 <On Platform="Android">White</On>

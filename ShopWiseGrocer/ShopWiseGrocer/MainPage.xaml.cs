@@ -152,7 +152,7 @@ namespace ShopWiseGrocer
         {
             if (sender is Button button)
             {
-                button.ScaleTo(0.95, 50); // Reduce the scale slightly over 50 milliseconds
+                button.ScaleTo(0.95, 50);
             }
         }
 
@@ -160,7 +160,7 @@ namespace ShopWiseGrocer
         {
             if (sender is Button button)
             {
-                button.ScaleTo(1, 50); // Return the scale to normal over 50 milliseconds
+                button.ScaleTo(1, 50); 
             }
         }
 
