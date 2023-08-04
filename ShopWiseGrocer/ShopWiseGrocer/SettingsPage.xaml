@@ -5,20 +5,34 @@
              Title="Settings"
              BackgroundColor="{DynamicResource AppBackground}">
 
-    <StackLayout Padding="20">
-        <Label Text="Theme Mode" FontSize="24" />
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <Slider Maximum="1"
-            Minimum="0"
-            Value="{Binding Source={x:Reference App}, Path=IsDarkTheme, Mode=TwoWay}"
-            WidthRequest="200"
-            Margin="0,10,0,10" />
+        <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
 
+            <Label Text="Language:" FontSize="20" />
 
-        <Label Text="{Binding ThemeModeText}"
-               FontSize="16"
-               HorizontalOptions="Center" />
+            <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="White">
+                <Picker x:Name="LanguagePicker" 
+                        Title="Select a Language"
+                        SelectedIndexChanged="OnPickerSelectedIndexChanged"
+                        Margin="0,10,0,10" />
+            </Frame>
 
-    </StackLayout>
+            <Label Text="Font Size" FontSize="20" />
+            
+            <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="Gray">
+                <Slider x:Name="FontSizeSlider"
+                    Maximum="30"
+                    Minimum="10"
+                    ValueChanged="OnSliderValueChanged"
+                    BackgroundColor="Gray"
+                    Margin="0,10,0,10" />
+            </Frame>
 
+        </StackLayout>
+    </Grid>
 </ContentPage>
