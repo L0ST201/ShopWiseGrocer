@@ -6,8 +6,9 @@
              Title="Settings"
              BackgroundColor="{DynamicResource AppBackground}">
 
-    <Grid Padding="20">
+    <Grid Padding="20" VerticalOptions="CenterAndExpand">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -20,16 +21,16 @@
                    HorizontalOptions="Center" />
             <Switch IsToggled="{Binding IsDarkTheme, Mode=TwoWay}"
                     Toggled="OnToggled"
-                    WidthRequest="200"
+                    HorizontalOptions="Center"
                     Margin="0,10,0,10" />
         </StackLayout>
 
         <Label Text="Language:" FontSize="20" VerticalOptions="CenterAndExpand" Grid.Row="1" />
 
-        <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="White" VerticalOptions="CenterAndExpand" Grid.Row="2">
-            <Grid HeightRequest="55">
+        <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" Grid.Row="2">
+            <Grid HeightRequest="60">
                 <Picker x:Name="LanguagePicker"
-                    FontSize="14"
+                    FontSize="16"
                     Title="Select a Language"
                     SelectedIndexChanged="OnPickerSelectedIndexChanged"
                     Margin="0,10,0,10" />
@@ -38,7 +39,7 @@
 
         <Label Text="Font Size:" FontSize="20" VerticalOptions="CenterAndExpand" Grid.Row="3" />
 
-        <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="Gray" VerticalOptions="CenterAndExpand" Grid.Row="4">
+        <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="Gray" VerticalOptions="CenterAndExpand"  Grid.Row="4">
             <Slider x:Name="FontSizeSlider"
                 Maximum="30"
                 Minimum="10"
