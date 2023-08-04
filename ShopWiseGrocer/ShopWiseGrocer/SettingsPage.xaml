@@ -15,7 +15,7 @@
         <StackLayout Padding="20">
 
             <Label Text="Appearance:" FontSize="20" VerticalOptions="CenterAndExpand" />
-            <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="Gray" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"Expand>
+            <Frame HasShadow="True" CornerRadius="5" Padding="0" BackgroundColor="Gray" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
                 <Slider Maximum="1"
                     Minimum="0"
                     Value="{Binding Source={x:Static local:App.IsDarkTheme}, Mode=TwoWay}"
