@@ -26,8 +26,15 @@ namespace ShopWiseGrocer
             string currentLanguage = Preferences.Get("AppLanguage", "English");
             LanguagePicker.SelectedIndex = LanguagePicker.ItemsSource.IndexOf(currentLanguage);
 
-            double currentFontSize = Preferences.Get("AppFontSize", 16);
-            FontSizeSlider.Value = currentFontSize;
+            string fontSizeStr = Preferences.Get("AppFontSize", "16");
+            double currentFontSize;
+
+            if (!double.TryParse(fontSizeStr, out currentFontSize))
+            {
+                // Handle the case where fontSizeStr could not be converted to a double.
+                currentFontSize = 16; // Default font size.
+            }
+
         }
 
         void OnPickerSelectedIndexChanged(object sender, EventArgs e)
