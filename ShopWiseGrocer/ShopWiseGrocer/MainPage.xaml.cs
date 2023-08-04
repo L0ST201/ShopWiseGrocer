@@ -20,6 +20,7 @@ namespace ShopWiseGrocer
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
 
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GroceryItems.db3");
             _databaseService = new DatabaseService(dbPath);
