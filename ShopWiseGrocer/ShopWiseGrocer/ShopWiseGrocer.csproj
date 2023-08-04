@@ -24,7 +24,31 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Converters\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DarkApp.xaml.cs">
+      <DependentUpon>DarkApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LightApp.xaml.cs">
+      <DependentUpon>LightApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="NotificationsPage.xaml.cs">
+      <DependentUpon>NotificationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="NotificationsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfilePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

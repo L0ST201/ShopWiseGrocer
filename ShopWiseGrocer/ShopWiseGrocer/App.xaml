@@ -5,12 +5,48 @@
              x:Class="ShopWiseGrocer.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!-- light theme colors -->
+            <!-- Light theme colors -->
             <Color x:Key="Primary">#151b1f</Color>
             <Color x:Key="Accent">#0C74D5</Color>
             <Color x:Key="TextColor">#36454F</Color>
             <Color x:Key="FrameBackgroundColor">White</Color>
             <Color x:Key="AppBackground">#FBFAF5</Color>
+
+            <!-- Dark theme colors -->
+            <Color x:Key="DarkPrimary">White</Color>
+            <Color x:Key="DarkAccent">#0C74D5</Color>
+            <Color x:Key="DarkTextColor">White</Color>
+            <Color x:Key="DarkFrameBackgroundColor">#606060</Color>
+            <Color x:Key="DarkAppBackground">#474747</Color>
+
+            <!-- Light theme colors -->
+            <Color x:Key="LightPrimary">#151b1f</Color>
+            <Color x:Key="LightAccent">#0C74D5</Color>
+            <Color x:Key="LightTextColor">#36454F</Color>
+            <Color x:Key="LightFrameBackgroundColor">White</Color>
+            <Color x:Key="LightAppBackground">#FBFAF5</Color>
+            <OnPlatform x:Key="AppBackgroundColor" x:TypeArguments="Color">
+                <On Platform="iOS">White</On>
+                <On Platform="Android">White</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="DarkAppBackgroundColor" x:TypeArguments="Color">
+                <On Platform="iOS">#2D2D2D</On>
+                <On Platform="Android">#2D2D2D</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="AppTextAccentColor" x:TypeArguments="Color">
+                <On Platform="iOS">#0C74D5</On>
+                <On Platform="Android">#0C74D5</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="DarkAppTextAccentColor" x:TypeArguments="Color">
+                <On Platform="iOS">#0C74D5</On>
+                <On Platform="Android">#0C74D5</On>
+            </OnPlatform>
+
+            <local:NullToBoolConverter x:Key="nullToBoolConverter" />
+            <local:InverseNullToBoolConverter x:Key="inverseNullToBoolConverter" />
 
             <local:BoolToStrikethroughConverter x:Key="BoolToStrikethroughConverter" />
         </ResourceDictionary>

@@ -20,6 +20,7 @@ namespace ShopWiseGrocer
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
 
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GroceryItems.db3");
             _databaseService = new DatabaseService(dbPath);
@@ -146,5 +147,37 @@ namespace ShopWiseGrocer
             groupedItems = new ObservableCollection<Grouping<string, GroceryItem>>(sorted);
             GroceryListView.ItemsSource = groupedItems;
         }
+
+        private void OnButtonPressed(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                button.ScaleTo(0.95, 50);
+            }
+        }
+
+        private void OnButtonReleased(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                button.ScaleTo(1, 50); 
+            }
+        }
+
+        void OnProfileClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProfilePage());
+        }
+
+        void OnNotificationClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NotificationsPage());
+        }
+
+        void OnSettingsClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SettingsPage());
+        }
+
     }
 }

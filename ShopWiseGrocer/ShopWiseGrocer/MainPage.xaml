@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:ShopWiseGrocer.Models"
              x:Class="ShopWiseGrocer.MainPage"
-             BackgroundColor="{StaticResource AppBackground}">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{DynamicResource AppBackground}">
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -85,13 +86,16 @@
             </Grid.ColumnDefinitions>
 
             <Entry Placeholder="Add item"
-                   PlaceholderColor="{StaticResource TextColor}"
+                   PlaceholderColor="{DynamicResource TextColor}"
+                   TextColor="{DynamicResource TextColor}"
                    x:Name="ItemEntry"
                    HorizontalOptions="FillAndExpand"
                    Grid.Row="0"
                    Grid.Column="0" />
 
             <Picker Title="Category"
+                    TitleColor="{DynamicResource TextColor}"
+                    TextColor="{DynamicResource TextColor}"
                     x:Name="CategoryPicker"
                     HorizontalOptions="FillAndExpand"
                     Grid.Row="1"
@@ -120,8 +124,26 @@
                          HorizontalOptions="End"
                          Grid.Column="1"
                          Grid.Row="0"
-                         Grid.RowSpan="2"
+                         Grid.RowSpan="2"   
                          Margin="0,30,-10,0"/>
+
+            <StackLayout Grid.Row="2" Orientation="Horizontal" BackgroundColor="Transparent" Padding="1" Spacing="0">
+                <Image Source="account.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="notification.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNotificationClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="settings.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSettingsClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
         </Grid>        
     </Grid>
 </ContentPage>

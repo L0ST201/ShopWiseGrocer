@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ShopWiseGrocer.Models"
+             x:Class="ShopWiseGrocer.NotificationsPage"
+             Title="Notifications"
+             BackgroundColor="{DynamicResource AppBackground}">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="1"
+                  x:Name="NotificationsList"
+                  SeparatorVisibility="None"
+                  IsVisible="{Binding Path=NotificationsList.ItemsSource, Converter={StaticResource nullToBoolConverter}}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Padding="10"
+                               Margin="5"
+                               BackgroundColor="White"
+                               CornerRadius="10"
+                               HasShadow="True">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Title}" FontSize="18" />
+                                <Label Text="{Binding Message}" FontSize="16" TextColor="Gray" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Grid.Row="1"
+               Text="Nothing to be found here!"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               IsVisible="{Binding Path=NotificationsList.ItemsSource, Converter={StaticResource inverseNullToBoolConverter}}" />
+
+    </Grid>
+</ContentPage>
