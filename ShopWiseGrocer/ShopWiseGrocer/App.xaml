@@ -13,11 +13,11 @@
             <Color x:Key="AppBackground">#FBFAF5</Color>
 
             <!-- Dark theme colors -->
-            <Color x:Key="DarkPrimary">#FFFFFF</Color>
+            <Color x:Key="DarkPrimary">White</Color>
             <Color x:Key="DarkAccent">#0C74D5</Color>
-            <Color x:Key="DarkTextColor">#EFEFEF</Color>
-            <Color x:Key="DarkFrameBackgroundColor">#1A1A1A</Color>
-            <Color x:Key="DarkAppBackground">#2D2D2D</Color>
+            <Color x:Key="DarkTextColor">White</Color>
+            <Color x:Key="DarkFrameBackgroundColor">#606060</Color>
+            <Color x:Key="DarkAppBackground">#474747</Color>
 
             <OnPlatform x:Key="AppBackgroundColor" x:TypeArguments="Color">
                 <On Platform="iOS">White</On>

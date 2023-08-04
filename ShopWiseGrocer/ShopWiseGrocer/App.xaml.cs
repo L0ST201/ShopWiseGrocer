@@ -6,8 +6,11 @@ namespace ShopWiseGrocer
 {
     public partial class App : Application
     {
-        private static bool isDarkTheme = false;
-        public static bool IsDarkTheme
+        private bool isDarkTheme = false;
+
+        public event Action ThemeChanged;
+
+        public bool IsDarkTheme
         {
             get => isDarkTheme;
             set
@@ -16,6 +19,7 @@ namespace ShopWiseGrocer
                 {
                     isDarkTheme = value;
                     ApplyTheme();
+                    ThemeChanged?.Invoke();
                 }
             }
         }
@@ -29,7 +33,7 @@ namespace ShopWiseGrocer
             MainPage = new NavigationPage(new MainPage());
         }
 
-        private static void ApplyTheme()
+        private void ApplyTheme()
         {
             if (IsDarkTheme)
             {

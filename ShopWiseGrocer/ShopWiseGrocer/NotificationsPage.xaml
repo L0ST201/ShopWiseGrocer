@@ -4,7 +4,7 @@
              xmlns:models="clr-namespace:ShopWiseGrocer.Models"
              x:Class="ShopWiseGrocer.NotificationsPage"
              Title="Notifications"
-             BackgroundColor="#FBFAF5">
+             BackgroundColor="{DynamicResource AppBackground}">
 
     <Grid Padding="20">
         <Grid.RowDefinitions>
